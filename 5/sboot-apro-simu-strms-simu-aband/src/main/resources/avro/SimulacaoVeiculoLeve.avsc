@@ -1,0 +1,61 @@
+{
+  "name": "SimulacaoVeiculoLeve",
+  "namespace": "br.com.bv.workshop",
+  "type": "record",
+  "fields": [
+    {
+      "name": "cpf",
+      "type": "string"
+    },
+    {
+      "name": "data",
+      "type": {
+        "type": "long",
+        "logicalType": "local-timestamp-millis"
+      }
+    },
+    {
+      "name": "parcelas",
+      "type": "int"
+    },
+    {
+      "name": "entrada",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 18,
+        "scale": 2
+      }
+    },
+    {
+      "name": "veiculo",
+      "type": {
+        "name": "Veiculo",
+        "type": "record",
+        "fields": [
+          {
+            "name": "ano",
+            "type": "int"
+          },
+          {
+            "name": "marca",
+            "type": "string"
+          },
+          {
+            "name": "modelo",
+            "type": "string"
+          },
+          {
+            "name": "valor",
+            "type": {
+              "type": "bytes",
+              "logicalType": "decimal",
+              "precision": 18,
+              "scale": 2
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

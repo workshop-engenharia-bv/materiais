@@ -1,0 +1,33 @@
+server:
+  port: 9091
+
+spring:
+  application.name: sboot-apro-simu-strms-simu-aband
+  kafka:
+    client-id: sboot-apro-simu-strms-simu-aband
+    streams:
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+    properties:
+      bootstrap.servers: pkc-6ojv2.us-west4.gcp.confluent.cloud:9092
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='KP4LJLJAQMSOG2KO' password='Cgn5vD88dylB6D7NiEvcFTdtg1SJjlVxmPDAr4c6Gwt/YMDjlat7BDk2I+MSHuGQ';
+      security.protocol: SASL_SSL
+      session.timeout.ms: 45000
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: FJDMW63JAI7KPCZW:ng1LwztraQLVRGl1XOiqC1dspLfEbwyvK239w2xCOHh2k7asRFkJgvTfEEfrHF9S
+      schema.registry.url: https://psrc-30dr2.us-central1.gcp.confluent.cloud
+      auto.register.schemas: false
+
+topic:
+  input: negocio-rodas-simulacao-veiculo-leve
+  output: negocio-rodas-simulacao-abandonada-veiculo-leve
+
+management:
+  endpoint.info.enabled: true
+  endpoints.web.exposure.include: health,metrics,prometheus,loggers
+
+logging:
+  level:
+    root: INFO

@@ -1,0 +1,36 @@
+server:
+  port: 9093
+
+spring:
+  application.name: sboot-apro-simu-atom-propensao
+  kafka:
+    client-id: sboot-apro-simu-atom-propensao
+    consumer:
+      group-id: group-consumer-sboot-apro-simu-atom-propensao
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        specific.avro.reader: true
+        interceptor.classes: br.com.bv.workshop.messaging.KafkaConsumerInterceptor
+    properties:
+      bootstrap.servers: pkc-6ojv2.us-west4.gcp.confluent.cloud:9092
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='KP4LJLJAQMSOG2KO' password='Cgn5vD88dylB6D7NiEvcFTdtg1SJjlVxmPDAr4c6Gwt/YMDjlat7BDk2I+MSHuGQ';
+      security.protocol: SASL_SSL
+      session.timeout.ms: 45000
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: FJDMW63JAI7KPCZW:ng1LwztraQLVRGl1XOiqC1dspLfEbwyvK239w2xCOHh2k7asRFkJgvTfEEfrHF9S
+      schema.registry.url: https://psrc-30dr2.us-central1.gcp.confluent.cloud
+      auto.register.schemas: false
+
+topic:
+  input: negocio-rodas-propensao-cliente
+
+management:
+  endpoint.info.enabled: true
+  endpoints.web.exposure.include: health,metrics,prometheus,loggers
+
+logging:
+  level:
+    root: INFO

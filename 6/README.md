@@ -1,0 +1,19 @@
+
+```sql
+CREATE STREAM NEGOCIORODASSIMULACAOVEICULOLEVE
+  WITH (
+    KAFKA_TOPIC='negocio-rodas-simulacao-veiculo-leve',
+    VALUE_FORMAT='AVRO',
+    VALUE_SCHEMA_ID=100005
+  );
+```
+
+```sql
+CREATE STREAM SIMUABAND
+WITH (KAFKA_TOPIC = 'negocio-rodas-simulacao-abandonada-veiculo-leve',
+      VALUE_FORMAT='AVRO',
+      VALUE_SCHEMA_ID=100005) AS
+SELECT *
+FROM NEGOCIORODASSIMULACAOVEICULOLEVE
+WHERE UNIX_TIMESTAMP() > `data` + (10 * 60 * 1000);
+```

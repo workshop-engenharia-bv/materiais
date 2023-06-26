@@ -1,0 +1,12 @@
+{
+    "cpf": "1",
+    "data": 1624374000000,
+    "parcelas": 10,
+    "entrada": "10000",
+    "veiculo": {
+        "ano": 2020,
+        "marca": "Citroen",
+        "modelo": "C3",
+        "valor": "54000"
+    }
+}

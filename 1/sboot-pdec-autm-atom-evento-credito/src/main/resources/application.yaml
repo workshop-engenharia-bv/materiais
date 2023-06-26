@@ -1,0 +1,35 @@
+server:
+  port: 9090
+
+spring:
+  application.name: sboot-pdec-autm-atom-evento-credito
+  kafka:
+    client-id: sboot-pdec-autm-atom-evento-credito
+    producer:
+      retries: 3
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        interceptor.classes: br.com.bv.workshop.messaging.KafkaProducerInterceptor
+    properties:
+      bootstrap.servers: pkc-6ojv2.us-west4.gcp.confluent.cloud:9092
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='KP4LJLJAQMSOG2KO' password='Cgn5vD88dylB6D7NiEvcFTdtg1SJjlVxmPDAr4c6Gwt/YMDjlat7BDk2I+MSHuGQ';
+      security.protocol: SASL_SSL
+      session.timeout.ms: 45000
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: FJDMW63JAI7KPCZW:ng1LwztraQLVRGl1XOiqC1dspLfEbwyvK239w2xCOHh2k7asRFkJgvTfEEfrHF9S
+      schema.registry.url: https://psrc-30dr2.us-central1.gcp.confluent.cloud
+      auto.register.schemas: false
+
+topic:
+  output: negocio-rodas-simulacao-veiculo-leve
+
+management:
+  endpoint.info.enabled: true
+  endpoints.web.exposure.include: health,metrics,prometheus,loggers
+
+logging:
+  level:
+    root: INFO

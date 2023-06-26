@@ -1,0 +1,24 @@
+{
+  "name": "Propensao",
+  "namespace": "br.com.bv.workshop",
+  "type": "record",
+  "fields": [
+    {
+      "name": "cpf",
+      "type": "string"
+    },
+    {
+      "name": "score",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 18,
+        "scale": 2
+      }
+    },
+    {
+      "name": "grupo",
+      "type": "int"
+    }
+  ]
+}
